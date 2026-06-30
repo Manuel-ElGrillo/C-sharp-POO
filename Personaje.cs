@@ -1,7 +1,7 @@
 public class Personaje
 {
     // Campo privado, solo esta clase puede modificarlo directamente
-    private int puntosDeVidaActuales;
+    protected int puntosDeVidaActuales; // protected para que las clases hijas puedan tocar los puntos de vida
 
     // Propiedades públicas, la forma "correcta" de exponer datos hacia afuera de la clase
     public string Nombre { get; set; }
@@ -30,5 +30,10 @@ public class Personaje
     public void MostrarEstado()
     {
         Console.WriteLine($"{Nombre} -> {puntosDeVidaActuales}/{PuntosDeVidaMaximos} HP");
+    }
+
+    public virtual void Atacar () 
+    {
+        Console.WriteLine($"{Nombre} ataca de forma genérica.");
     }
 }
